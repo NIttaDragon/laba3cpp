@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  int i,n,kol,j,net;
+  int i, n, kol, j, net, groups, dvas;
   struct kurs
   {
     char inic[40];
@@ -17,27 +17,25 @@ int main()
   kurs* box= new kurs[n];
   kurs tmp;
 
-for(int i=0;i<n;i++) //заполнение данных
-  {
-    kol=0;
-    cout<<endl;
-    cout<<"Введите фамилию и инициалы в формате Фамилия.И.О: "<<endl;
-    cin.getline(box[i].inic,80);
-    cin >> box[i].inic;
-    cout<<"Введите номер группы: "<<endl;
-    cin>>box[i].group;
-    cout<<"Введите оценки: "<<endl;
-    for(j=0;j<5;j++)
+  for(int i=0;i<n;i++) //заполнение данных
     {
-      cin>>box[i].mark[j];
-      if (box[i].mark[j]=='2')
-        kol++;
-      box[i].dva=kol;
+      kol=0;
+      cout<<endl;
+      cout<<"Введите фамилию и инициалы в формате Фамилия.И.О: "<<endl;
+      cin.getline(box[i].inic,80);
+      cin >> box[i].inic;
+      cout<<"Введите номер группы: "<<endl;
+      cin>>box[i].group;
+      cout<<"Введите оценки: "<<endl;
+      for(j=0;j<5;j++)
+      {
+        cin>>box[i].mark[j];
+        if (box[i].mark[j]=='2')
+          kol++;
+        box[i].dva=kol;
+      }
     }
-  }
   char inics[40];
-  int groups;
-  int dvas;
   for (i=n-1;i>0;i--)//сортировка
   {
     for(int j=0;j<i;j++)
